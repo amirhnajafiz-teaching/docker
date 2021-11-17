@@ -1,4 +1,4 @@
-# Docker-for-my-Mac
+# Docker for my Mac
 Settting up the a docker + building a simple project on my Mac-book
 
 ## Installing Docker
@@ -25,3 +25,17 @@ And you can work with the docker desktop with the installed application, besides
 
 ## Using sail
 Now we are going to create a project with **laravel sail**.
+
+Enter the following command to download the project:
+```
+curl -s https://laravel.build/example-app | bash
+```
+
+After that use the sail command to run the project on a docker container:
+```
+cd example-app
+
+./vendor/bin/sail up
+```
+
+And now you have a simple laravel application on docker.
