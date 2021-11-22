@@ -1,5 +1,5 @@
-# Docker for my Mac
-Settting up the a docker + building a simple project on my Mac-book
+# Sailing on mac-book
+Setting up the a docker + building a simple project on Mac-book with Laravel sail
 
 ## Installing Docker
 Well, installing docker is the easiest part of the project.<br />
