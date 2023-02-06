@@ -1,6 +1,8 @@
 // importing modules
 const express = require('express');
 const redis = require("redis");
+const dotenv = require('dotenv');
+dotenv.config();
 
 // creating base variables
 const app = express();
@@ -24,32 +26,34 @@ let redisClient;
 
 // get endpoint for getting a value
 // example: /api?key=name
-app.get('/api', (req, res) => {
+app.get('/api', async (req, res) => {
     console.log('[GET] ' + req.url)
 
-    let key = req.query.get('key')
+    let key = req.query.key
 
     try {
-        let value = redisClient.get(key)
-        res.send(value)
+        let value = await redisClient.get(key)
+
+        return res.send(value)
     } catch (error) {
-        res.error(error)
+        return res.error(error)
     }
 })
 
 // post endpoint for setting a value
 // example: /api?key=name&value=amir
-app.post('/api', (req, res) => {
+app.post('/api', async (req, res) => {
     console.log('[POST] ' + req.url)
 
-    let key = req.query.get('key');
-    let value = req.query.get('value');
+    let key = req.query.key;
+    let value = req.query.value;
 
     try {
-        redisClient.set(key, value)
-        res.status(201)
+        await redisClient.set(key, value)
+
+        return res.sendStatus(201)
     } catch (error) {
-        res.error(error)
+        return res.error(error)
     }
 })
 
