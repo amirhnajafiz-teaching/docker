@@ -15,7 +15,7 @@ MAINTAINER amirhossein.najafizadeh21@gmail.com
 ARG HTML_DIR=static-html-directory
 
 # setting one env variable
-ENV APP="/usr/share/nginx/html"
+ENV APP="cloud computing docker presentation"
 
 # copy all files of html directory
 COPY $HTML_DIR /usr/share/nginx/html
@@ -23,8 +23,11 @@ COPY $HTML_DIR /usr/share/nginx/html
 # run the echo command to see directory
 RUN echo $HTML_DIR
 
+# run another command
+RUN export $APP
+
 # add a command for on build
-ONBUILD RUN ls $APP
+ONBUILD RUN ls /usr/share/nginx/html
 
 # expose port 80
 EXPOSE 80/tcp
