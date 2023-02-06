@@ -1,0 +1,22 @@
+{
+  "name": "app",
+  "version": "0.1.0",
+  "description": "Simple express application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/amirhossein-teaching/docker"
+  },
+  "keywords": [
+    "docker",
+    "js",
+    "network",
+    "volume",
+    "redis"
+  ],
+  "author": "amirhossein.najafizadeh21@gmail.com",
+  "license": "ISC"
+}
