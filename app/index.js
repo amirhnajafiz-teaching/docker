@@ -3,16 +3,21 @@ const redis = require("redis");
 
 const app = express();
 const port = process.env.HTTP_PORT || 3000;
+const redis_url = process.env.REDIS_URL || 'redis://redis:6379';
+
 
 let redisClient;
 
 (async () => {
-    redisClient = redis.createClient();
+    redisClient = redis.createClient({
+        url: redis_url
+    });
 
     redisClient.on("error", (error) => console.error(`Error : ${error}`));
 
     await redisClient.connect();
 })();
+
 
 app.get('/api', (req, res) => {
     res.send('Hello World!')
