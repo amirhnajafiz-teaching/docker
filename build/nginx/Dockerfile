@@ -12,7 +12,7 @@ LABEL app=nginx-example
 MAINTAINER amirhossein.najafizadeh21@gmail.com
 
 # setting an argument
-ARG HTML_DIR=static-html-directory
+ARG HTML_DIR=html
 
 # setting one env variable
 ENV APP="cloud computing docker presentation"
