@@ -20,7 +20,26 @@ let redisClient;
 
 
 app.get('/api', (req, res) => {
-    res.send('Hello World!')
+    let key = req.query.get('key')
+
+    try {
+        let value = redisClient.get(key)
+        res.send(value)
+    } catch (error) {
+        res.error(error)
+    }
+})
+
+app.post('/api', (req, res) => {
+    let key = req.query.get('key');
+    let value = req.query.get('value');
+
+    try {
+        redisClient.set(key, value)
+        res.status(201)
+    } catch (error) {
+        res.error(error)
+    }
 })
 
 app.listen(port, () => {
