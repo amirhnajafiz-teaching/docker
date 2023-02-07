@@ -75,3 +75,11 @@ the intended destination.
 ```shell
 ~/Library/Containers/com.docker.docker/Data/vms/0/data/Docker.raw
 ```
+
+<br />
+
+## Resources
+
+- [https://hub.docker.com](https://hub.docker.com/)
+- [https://www.docker.com](https://www.docker.com/)
+- [https://www.netapp.com](https://www.netapp.com/devops-solutions/what-are-containers/#:~:text=Benefits%20of%20containers,-Containers%20are%20a&text=Containers%20require%20less%20system%20resources,t%20include%20operating%20system%20images.&text=Applications%20running%20in%20containers%20can,operating%20systems%20and%20hardware%20platforms.)
