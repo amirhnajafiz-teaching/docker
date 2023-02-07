@@ -28,3 +28,50 @@ hardware virtual machine environments because they don't
 include operating system images. 
 Applications running in containers can be deployed easily 
 to multiple different operating systems and hardware platforms.
+
+## What is Docker?
+
+Docker is an open source platform that enables developers 
+to build, deploy, run, update and manage containers—standardized, 
+executable components that combine application source code with 
+the operating system (OS) libraries and dependencies required to 
+run that code in any environment.
+
+<p align="center">
+    <img src="assets/docker.jpeg" width="296" alt="docker" />
+</p>
+
+### Principles
+
+- **Image**: A Docker image is a file used to execute code 
+in a Docker container. Docker images act as a set of 
+instructions to build a Docker container, like a template.
+- **Dockerfile**: Is used to create docker images.
+- **Container**: Each container is build from a docker image.
+- **Registry**: A simple example is Dockerhub.
+
+### Image layers
+
+Layers allow you to work with Docker images faster. 
+This is because the builds avoid unnecessary steps, 
+and the pulling and pushing of images skips the transfer 
+of a large unchanged amount of data already available in 
+the intended destination.
+
+<p align="center">
+    <img src="assets/layers.png" width="300" alt="layer" />
+</p>
+
+### Where are containers on my system stored?
+
+#### Linux
+
+```shell
+/var/lib/docker
+```
+
+#### MacOS
+
+```shell
+~/Library/Containers/com.docker.docker/Data/vms/0/data/Docker.raw
+```
