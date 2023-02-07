@@ -7,6 +7,10 @@ FROM node:16
 # Create app directory
 WORKDIR /usr/src/app
 
+# set environment variables
+ENV HTTP_PORT=8080
+ENV REDIS_URL=redis://localhost:6379
+
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
