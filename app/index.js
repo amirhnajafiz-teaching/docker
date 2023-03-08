@@ -1,6 +1,8 @@
 // importing modules
 const express = require('express');
 const redis = require("redis");
+const dotenv = require('dotenv');
+dotenv.config();
 
 // creating base variables
 const app = express();
