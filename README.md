@@ -78,21 +78,6 @@ the intended destination.
 
 <br />
 
-## Presentation
-
-- Containers
-  - cgroups
-  - namespace
-  - runC
-- Docker
-  - image
-  - container
-  - dockerfile
-  - commands
-  - network
-  - volume
-  - example
-
 ## Resources
 
 - [https://hub.docker.com](https://hub.docker.com/)
