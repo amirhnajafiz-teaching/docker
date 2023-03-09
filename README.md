@@ -57,3 +57,88 @@ docker run -p 80:80 -d amirhossein21/nginx:v0.1.0
 ```
 
 Now make a curl to ```localhost:8080```.
+
+## Node App
+
+In the next example we are going to deploy a full **Node.js** application with **Redis** database on **Docker**.
+
+First we need to build our network and volume:
+
+#### Network
+
+```shell
+docker network create node-app
+```
+
+#### Volume
+
+```shell
+docker volume create redisvolume
+```
+
+Now let's start **Redis** cluster in **node-app** network, binded to ```redisvolume```.
+
+```shell
+docker run --network=node-app -v redisvolume:/data --name node-app-redis-cluster -d redis:latest
+```
+
+Now that we have Redis cluster up and running, we are
+going to deploy our node app.
+
+First we are going to write a Dockerfile.
+
+```Dockerfile
+FROM node:16
+
+# Create app directory
+WORKDIR /usr/src/app
+
+# set environment variables
+ENV HTTP_PORT=8080
+ENV REDIS_URL=redis://node-app-redis-cluster:6379
+
+# Install app dependencies
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
+# where available (npm@5+)
+COPY ./app/package*.json ./
+
+# Run npm i to create node_modules directory.
+RUN npm install
+
+# If you are building your code for production
+# RUN npm ci --only=production
+
+# Bundle app source
+COPY ./app .
+
+# cmd allows us to execute the node app starting command
+CMD [ "node", "index.js" ]
+```
+
+Pay attention to the redis cluster address:
+
+```Dockerfile
+ENV REDIS_URL=redis://node-app-redis-cluster:6379
+```
+
+Since our node app container and redis cluster are in
+one network, we can use the redis container name insted of host ip.
+
+#### Build
+
+```shell
+docker build . -f build/app/Dockerfile -t amirhossein21/node-app:v0.1.0
+```
+
+#### Run
+
+```shell
+docker run --network=node-app --name node-app-container -d -p 8080:8080 amirhossein21/node-app:v0.1.0
+```
+
+Now make the following http requests:
+
+```shell
+curl -X POST "localhost:8080/api?key=amir&value=hossein"
+curl -X GET "localhost:8080/api?key=amir"
+```
