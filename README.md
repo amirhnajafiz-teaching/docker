@@ -1,13 +1,7 @@
 # Docker
 
-<br />
-
-<div align="center">
-    <img src="https://img.shields.io/github/languages/top/amirhossein-teaching/docker?style=flat-square" />
-    <img src="https://img.shields.io/github/v/release/amirhossein-teaching/docker?style=flat-square" />
-</div>
-
-<br />
+<img src="https://img.shields.io/github/languages/top/amirhossein-teaching/docker?style=flat-square" />
+<img src="https://img.shields.io/github/v/release/amirhossein-teaching/docker?style=flat-square" />
 
 Welcome to **Docker** practicual example. In this repository we are going to build containers with **Docker**. Next we are going to make communications
 between our containers using **Docker Network**, and
