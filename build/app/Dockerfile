@@ -4,6 +4,11 @@
 # operatig sytem.
 FROM node:16
 
+MAINTAINER amirhnajafiz
+
+LABEL app=node
+LABEL function=backend
+
 # Create app directory
 WORKDIR /usr/src/app
 
